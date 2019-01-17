@@ -1,0 +1,78 @@
+body {
+	color:black;
+}
+.adminLeftBar {
+	display: block;
+}
+.adminLeftBar li {
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	border:thin solid gray;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	padding-left: 10px;
+}
+.articleCountDiv {
+	border:thin solid gray;
+	margin-left:10px;
+	margin-top:30px;
+	height: 200px;
+	width: 20%;
+	text-align: center;
+	padding-top:100px;
+	border-radius: 10px;
+	background: linear-gradient(rgba(0,255,100,0.3), rgba(0,0,0,0.8)),url('../uploads/static/publishicon.JPG');
+	background-position:center top;
+	background-repeat: none;
+	background-size: cover;
+	color:white;
+}
+.articleCountDiv:nth-child(2) {
+	background: linear-gradient(rgba(0,255,100,0.3), rgba(0,0,0,0.8)),url('../uploads/static/topulish.PNG');
+	background-position:center top;
+	background-repeat: none;
+	background-size: cover;
+}
+.articleCountDiv:nth-child(3) {
+	background: linear-gradient(rgba(0,255,100,0.3), rgba(0,0,0,0.8)),url('../uploads/static/submiticon.PNG');
+	background-position:center top;
+	background-repeat: none;
+	background-size: cover;
+}
+.articleCountDiv:nth-child(4) {
+	background: linear-gradient(rgba(0,255,100,0.3), rgba(0,0,0,0.8)),url('../uploads/static/rejectedicon.PNG');
+	background-position:center top;
+	background-repeat: none;
+	background-size: cover;
+}
+.articleCountDiv:nth-child(5) {
+	background: linear-gradient(rgba(0,255,100,0.3), rgba(0,0,0,0.8)),url('../uploads/static/membersicon.PNG');
+	background-position:center top;
+	background-repeat: none;
+	background-size: cover;
+}
+.articleCountDiv:nth-child(6) {
+	background: linear-gradient(rgba(0,255,100,0.3), rgba(0,0,0,0.8)),url('../uploads/static/teamicon.PNG');
+	background-position:center top;
+	background-repeat: none;
+	background-size: cover;
+}
+.articleCountDiv:nth-child(7) {
+	background: linear-gradient(rgba(0,255,100,0.3), rgba(0,0,0,0.8)),url('../uploads/static/newsicon.JPG');
+	background-position:center top;
+	background-repeat: none;
+	background-size: cover;
+}
+.articleCountDiv:nth-child(8) {
+	background: linear-gradient(rgba(0,255,100,0.3), rgba(0,0,0,0.8)),url('../uploads/static/feedback.JPG');
+	background-position:center top;
+	background-repeat: none;
+	background-size: cover;
+}
+.articleCountDiv:nth-child(9) {
+	background: linear-gradient(rgba(0,255,100,0.3), rgba(0,0,0,0.8)),url('../uploads/static/feedback.JPG');
+	background-position:center top;
+	background-repeat: none;
+	background-size: cover;
+}

@@ -8,10 +8,29 @@ use App\models\editorialModel;
 use App\models\teamModel;
 use App\models\newsModel;
 use App\models\feedbackModel;
+use App\Models\manuscriptFiguresModel;
 class articlesController extends Controller
 {
     //
     public function topublish()
+    {
+    	//these are also approved articles after status of submitted	
+    	$articles = manuscriptModel::where([
+    		['status', '=', 'under review']])->get();
+    	// $figures = $articles->figures;
+    	// $articles = manuscriptModel->get;
+    	return view('articles.active', compact('articles'));
+    }
+    public function toApprove()
+    {
+    	//these are also approved articles after status of submitted
+    	$articles = manuscriptModel::where([
+    		['status', '=', 'submitted']])->get();
+    	// $figures = $articles->figures;
+    	// $articles = manuscriptModel->get;
+    	return view('articles.toapprove', compact('articles'));
+    }
+    public function index()
     {
     	// $feedback = feedbackModel::all();
     	$published = manuscriptModel::where('status', "published")->get()->count();
@@ -35,4 +54,6 @@ class articlesController extends Controller
     	return view('index', compact('articlesDetails'));
 
     }
+
+    
 }

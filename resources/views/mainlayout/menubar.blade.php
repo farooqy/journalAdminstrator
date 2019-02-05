@@ -87,6 +87,19 @@
 		</li>
 	</ul>
 	<ul class="row adminLeftBar">
+		Others
+		<li>
+			<a href="{{env('APP_URL')}}others/harvest">
+				Harvest Emails
+			</a>
+		</li>
+		<li>
+			<a href="{{env('APP_URL')}}others/analyis">
+				Users Data Analysis
+			</a>
+		</li>
+	</ul>	
+	<ul class="row adminLeftBar">
 		Feedback Messages
 		<li>
 			<a href="{{env('APP_URL').'feedback/unread'}}">

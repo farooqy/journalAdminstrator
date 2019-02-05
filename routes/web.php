@@ -12,6 +12,8 @@
 */
 
 
-Route::get('/', 'articlesController@topublish');
+Route::get('/', 'articlesController@index');
+
 Route::get('/articles', 'articlesController@topublish');
 Route::get('/articles/topublish', 'articlesController@topublish');
+Route::get('/articles/toapprove', 'articlesController@toApprove');

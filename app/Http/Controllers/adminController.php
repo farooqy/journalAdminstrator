@@ -11,4 +11,17 @@ class adminController extends Controller
     {
     	return view("index");
     }
+
+    public function loginPage()
+    {
+    	return view("loginPage.login");
+    }
+    public function doLogin(Request $formRequest)
+    {
+    	$formRequest->validate([
+    		"email" => "required|email",
+    		"password" => "required|password"
+    	]);
+    	return $formRequest;
+    }
 }

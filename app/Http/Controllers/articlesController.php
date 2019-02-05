@@ -30,9 +30,28 @@ class articlesController extends Controller
     	// $articles = manuscriptModel->get;
     	return view('articles.toapprove', compact('articles'));
     }
+    public function resent()
+    {
+        //these are also approved articles after status of submitted
+        $articles = manuscriptModel::where([
+            ['status', '=', 'resent']])->get();
+        // $figures = $articles->figures;
+        // $articles = manuscriptModel->get;
+        return view('articles.resent', compact('articles'));
+    }
+    public function rejected()
+    {
+        //these are also approved articles after status of submitted
+        $articles = manuscriptModel::where([
+            ['status', '=', 'rejected']])->get();
+        // $figures = $articles->figures;
+        // $articles = manuscriptModel->get;
+        return view('articles.rejected', compact('articles'));
+    }
     public function index()
     {
     	// $feedback = feedbackModel::all();
+        // return view("welcome");
     	$published = manuscriptModel::where('status', "published")->get()->count();
     	$submitted = manuscriptModel::where('status', "submitted")->get()->count();
     	$rejected = manuscriptModel::where('status', "rejected")->get()->count();
@@ -51,7 +70,9 @@ class articlesController extends Controller
     		'livenews' => isset($livenews) ? $livenews : 0,
     		'unreadfeedback' => isset($unreadfeedback) ? $unreadfeedback : 0,
     	];
-    	return view('index', compact('articlesDetails'));
+    	// return view('index', compact('articlesDetails'));
+        return view("index", compact('articlesDetails'));
+
 
     }
 

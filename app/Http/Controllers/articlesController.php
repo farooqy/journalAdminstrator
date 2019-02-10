@@ -9,6 +9,7 @@ use App\models\teamModel;
 use App\models\newsModel;
 use App\models\feedbackModel;
 use App\Models\manuscriptFiguresModel;
+use App\Models\registeredUsers;
 class articlesController extends Controller
 {
     //
@@ -60,6 +61,7 @@ class articlesController extends Controller
     	$activeteams = teamModel::where('status', 'active')->count();
     	$activeteams = newsModel::where('update_status', 'active')->count();
     	$unreadfeedback = feedbackModel::where('replied_status', 'false')->count();
+        $registeredUsers = registeredUsers::all()->count();
     	$articlesDetails = (object)[
     		'submitted' => $submitted,
     		'published' => $published,
@@ -69,11 +71,18 @@ class articlesController extends Controller
     		'activeteams' => isset($activeteams) ? $activeteams : 0,
     		'livenews' => isset($livenews) ? $livenews : 0,
     		'unreadfeedback' => isset($unreadfeedback) ? $unreadfeedback : 0,
+            'registeredUsers' => $registeredUsers
     	];
     	// return view('index', compact('articlesDetails'));
         return view("index", compact('articlesDetails'));
 
 
+    }
+
+    public function viewArticle($token)
+    {
+        $article = manuscriptModel::where('manToken', $token)->get();
+        return view('articles.viewArticle', compact('article'));
     }
 
     

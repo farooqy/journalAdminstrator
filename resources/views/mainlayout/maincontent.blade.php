@@ -66,7 +66,7 @@
                                             </div>
                                             <div>
                                                 <span class="d-block display-4 text-dark mb-5">
-                                                    55
+                                                    {{$articlesDetails->registeredUsers}}
                                                 </span>
                                                 <!-- <small class="d-block">172,458 Target Users</small> -->
                                             </div>

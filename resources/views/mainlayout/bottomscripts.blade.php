@@ -41,3 +41,6 @@
     <!-- Init JavaScript -->
     <script src="{{env('APP_URL')}}dist/js/init.js"></script>
     <script src="{{env('APP_URL')}}dist/js/dashboard-data.js"></script>
+
+    <!-- Custom Javascripts -->
+    <script src="{{env('APP_URL')}}js/custom.js"></script>

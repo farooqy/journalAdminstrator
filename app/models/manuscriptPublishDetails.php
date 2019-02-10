@@ -4,11 +4,10 @@ namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class manuscritpFiguresModel extends Model
+class manuscriptPublishDetails extends Model
 {
     //
-
-	protected $table = "journal_figures";
+    protected $table = "published_journals";
     public function manuscript()
     {
     	return $this->belongsTo('App\models\manuscriptModel', 'id');

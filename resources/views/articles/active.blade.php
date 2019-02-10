@@ -22,7 +22,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#">Publish</a>
-                                <a class="dropdown-item" href="#">View</a>
+                                <a class="dropdown-item" href="{{env('APP_URL')}}articles/{{$article->manToken}}">View</a>
                                 <!-- <a class="dropdown-item" href="#">Something else here</a> -->
                                 <div class="dropdown-divider"></div>
                                 <!-- <a class="dropdown-item" href="#">Separated link</a> -->

@@ -21,14 +21,14 @@
                             	<i class="ion ion-md-brush"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Publish</a>
+                                <a class="dropdown-item" href="{{env('APP_URL')}}articles/publish/{{$article->manToken}}">Publish</a>
                                 <a class="dropdown-item" href="{{env('APP_URL')}}articles/{{$article->manToken}}">View</a>
                                 <!-- <a class="dropdown-item" href="#">Something else here</a> -->
                                 <div class="dropdown-divider"></div>
                                 <!-- <a class="dropdown-item" href="#">Separated link</a> -->
                             </div>
                         </div>
-						<img src="{{$figureUrl}}" height="150px" width="99%">
+						<img src="{{$figureUrl}}" height="200px" width="99%" style="border:thin solid gray;">
 
 					</div>
 					<div class="row articleTitle">

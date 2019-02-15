@@ -21,7 +21,7 @@
                             	<i class="ion ion-md-brush"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Approve</a>
+                                <a class="dropdown-item" href="{{env('APP_URL')}}articles/approve/{{$article->manToken}}">Approve</a>
                                 <a class="dropdown-item" href="{{env('APP_URL')}}articles/{{$article->manToken}}">View</a>
                                 <!-- <a class="dropdown-item" href="#">Something else here</a> -->
                                 <div class="dropdown-divider"></div>

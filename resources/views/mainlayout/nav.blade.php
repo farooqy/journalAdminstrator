@@ -17,7 +17,7 @@
                                 <span class="badge badge-success badge-indicator"></span>
                             </div>
                             <div class="media-body">
-                                <span>{{$AdminName = "Madelyn Shanse"}}<i class="zmdi zmdi-chevron-down"></i></span>
+                                <span>{{$AdminName = Auth::user()->name}}<i class="zmdi zmdi-chevron-down"></i></span>
                             </div>
                         </div>
                     </a>

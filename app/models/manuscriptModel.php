@@ -20,4 +20,8 @@ class manuscriptModel extends Model
     {
     	return $this->hasOne('App\models\manuscriptPublishDetails', 'j_id');
     }
+    public function paperStatuses()
+    {
+        return $this->hasMany('App\models\paperStatusTrackModel', 'j_id');
+    }
 }

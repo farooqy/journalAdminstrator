@@ -9,13 +9,22 @@ use App\models\teamModel;
 use App\models\newsModel;
 use App\models\feedbackModel;
 use App\Models\manuscriptFiguresModel;
+use App\Models\manuscriptAuthorsModel;
 use App\Models\registeredUsers;
 class articlesController extends Controller
 {
     //
+    public function isLoggedInCheck()
+    {
+        if(!$user  = \Auth::user())
+            return redirect("login")->send();
+    }
     public function topublish()
     {
-    	//these are also approved articles after status of submitted	
+    	//***********************************//
+        #### ARTICLES READY FOR PUBLICATION ###
+        //***********************************//	
+        $this->isLoggedInCheck();
     	$articles = manuscriptModel::where([
     		['status', '=', 'under review']])->get();
     	// $figures = $articles->figures;
@@ -24,7 +33,10 @@ class articlesController extends Controller
     }
     public function toApprove()
     {
-    	//these are also approved articles after status of submitted
+        //***********************************//
+        #### ARTICLES READY TO APPROVE  ###
+        //***********************************// 
+        $this->isLoggedInCheck();
     	$articles = manuscriptModel::where([
     		['status', '=', 'submitted']])->get();
     	// $figures = $articles->figures;
@@ -33,7 +45,11 @@ class articlesController extends Controller
     }
     public function resent()
     {
-        //these are also approved articles after status of submitted
+        
+        //***********************************//
+        #### ARTICLES RESENT FOR MODIFYING ###
+        //***********************************// 
+        $this->isLoggedInCheck();
         $articles = manuscriptModel::where([
             ['status', '=', 'resent']])->get();
         // $figures = $articles->figures;
@@ -42,7 +58,11 @@ class articlesController extends Controller
     }
     public function rejected()
     {
-        //these are also approved articles after status of submitted
+        
+        //***********************************//
+        #### ARTICLES THAT ARE REJECTED ###
+        //***********************************// 
+        $this->isLoggedInCheck();
         $articles = manuscriptModel::where([
             ['status', '=', 'rejected']])->get();
         // $figures = $articles->figures;
@@ -53,6 +73,7 @@ class articlesController extends Controller
     {
     	// $feedback = feedbackModel::all();
         // return view("welcome");
+        $this->isLoggedInCheck();
     	$published = manuscriptModel::where('status', "published")->get()->count();
     	$submitted = manuscriptModel::where('status', "submitted")->get()->count();
     	$rejected = manuscriptModel::where('status', "rejected")->get()->count();
@@ -81,8 +102,40 @@ class articlesController extends Controller
 
     public function viewArticle($token)
     {
-        $article = manuscriptModel::where('manToken', $token)->get();
+        // $article = manuscriptModel::where('manToken', $token)->get();
+        $this->isLoggedInCheck();
+        $article = $this->findArticle("manToken", $token);
         return view('articles.viewArticle', compact('article'));
+    }
+
+    public function approveArticle($token)
+    {
+        $this->isLoggedInCheck();
+        $article = $this->findArticle("manToken", $token);
+        if($article == null | $article->count() <= 0)
+            return view("articles.notfound");
+        else
+        {
+            $manCAuthor = manuscriptAuthorsModel::where('a_email', $article[0]->c_author)->get();
+            return view("articles.actions.approve", compact('article', 'manCAuthor'));
+        }
+    }
+    public function publishArticle($token)
+    {
+        $this->isLoggedInCheck();
+        $article = $this->findArticle("manToken", $token);
+        if($article == null | $article->count() <= 0)
+            return view("articles.notfound");
+        else
+        {
+            $manCAuthor = manuscriptAuthorsModel::where('a_email', $article[0]->c_author)->get();
+            return view("articles.actions.publish", compact('article', 'manCAuthor'));
+        }
+    }
+
+    protected function findArticle($key, $value)
+    {
+        return manuscriptModel::where($key, $value)->get();
     }
 
     

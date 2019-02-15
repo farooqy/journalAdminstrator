@@ -21,7 +21,14 @@ Route::get('/articles/resent', 'articlesController@resent');
 Route::get('/articles/rejected', 'articlesController@rejected');
 Route::get('/articles/{token}', 'articlesController@viewArticle');
 Route::get('/articles/publish/{token}', 'articlesController@publishArticle');
+Route::get('/articles/approve/{token}', 'articlesController@approveArticle');
+Route::post('/articles/publish/{token}', 'articlesController@doPublishArticle');
+Route::post('/articles/approve/{token}', 'articlesController@doApproveArticle');
 
 
 Route::get("/login", "adminController@loginPage");
 Route::post("/login", "adminController@doLogin");
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

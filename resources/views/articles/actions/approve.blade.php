@@ -37,17 +37,38 @@
 		</div>
 		<div class="row " style="margin-top: 20px; border:thin solid gray; padding: 10px">
 			<form class="form col-md-6 col-lg-6" method="POST" action="">
+				@csrf
+				<div class="row">
+					@if(session()->has('articleError'))
+					<span><strong style="color:red">{{ session('articleError') }}</strong></span>
+					@else
+					<span>We are just fine {{ session('articleError') }} </span>
+					@endif
+					
+				</div>
+				<div class="row">
+					<input type="hidden" name="adminPassword" style="border:thin solid gray; height: 30px; width: 100%"  value="{{ $article[0]->manToken }}">
+					@if($errors->has('articleError'))
+					<span> <strong style="color: red"> {{ $errors->first('articleError') }} </strong></span>
+					@endif()
+				</div>
 				<div class="row">
 					<label for="adminPassword">
 						Please Enter your password to confirm
 					</label>
-					<input type="password" name="adminPassword" style="border:thin solid gray; height: 30px; width: 100%" placeholder="Enter your password" required="">
+					<input type="password" name="adminPassword" style="border:thin solid gray; height: 30px; width: 100%" placeholder="Enter your password" >
+					@if($errors->has('adminPassword'))
+					<span> <strong style="color: red"> {{ $errors->first('adminPassword') }} </strong></span>
+					@endif()
 				</div>
 				<div class="row">
 					<label for="adminPassword">
 						Please Enter the captcha displayed
 					</label>
-					<input type="text" name="adminCaptcha" style="border:thin solid gray; height: 30px; width: 100%" placeholder="Enter captcha" required="">
+					<input type="text" name="adminCaptcha" style="border:thin solid gray; height: 30px; width: 100%" placeholder="Enter captcha">
+					@if($errors->has('adminCaptcha'))
+					<span> <strong style="color: red"> Invalid captcha Code </strong></span>
+					@endif()
 				</div>
 				<div class="row">
 					<p> {!! captcha_img() ; !!} </p>

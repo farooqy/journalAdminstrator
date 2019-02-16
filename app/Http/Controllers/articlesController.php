@@ -11,6 +11,7 @@ use App\models\feedbackModel;
 use App\Models\manuscriptFiguresModel;
 use App\Models\manuscriptAuthorsModel;
 use App\Models\registeredUsers;
+use Auth;
 class articlesController extends Controller
 {
     //
@@ -138,5 +139,28 @@ class articlesController extends Controller
         return manuscriptModel::where($key, $value)->get();
     }
 
+
+    public function doApproveArticle(Request $approveForm)
+    {
+        $this->isLoggedInCheck();
+        $isvalid = $approveForm->validate([
+            'adminPassword' => 'required',
+            'adminCaptcha' => 'required|captcha',
+            'articleToken' => 'required'
+        ]);
+        $article = $this->findArticle("manToken", $approveForm->articleToken);
+        if($article == null | $article->count() <= 0)
+            return view("articles.notfound")->send();
+        else if(Auth::attempt(['password' => $approveForm->adminPassword]))
+        {
+            session()->flash('articleError', 'The admin password provided is not correct');
+        }
+        else
+        {
+            session()->flash('articleError', 'The admin password provided is correct');
+        }
+        session()->flash('articleError', 'The admin password provided is not correct');
+        return view('articles.actions.approve', 'article');
+    }
     
 }

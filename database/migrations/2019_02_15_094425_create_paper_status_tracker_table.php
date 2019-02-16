@@ -16,7 +16,8 @@ class CreatePaperStatusTrackerTable extends Migration
         //
         Schema::create('paper_status_track', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('j_id');
+            $table->biginteger('j_id');
+            $table->biginteger('whochanged_id');
             $table->string('status');
             $table->timestamps();
         });

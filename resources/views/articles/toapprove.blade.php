@@ -22,10 +22,10 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="{{env('APP_URL')}}articles/approve/{{$article->manToken}}">Approve</a>
+                                <a class="dropdown-item" href="{{env('APP_URL')}}articles/reject{{$article->manToken}}">Reject</a>
+                                <a class="dropdown-item" href="{{env('APP_URL')}}articles/resend{{$article->manToken}}">Resend</a>
                                 <a class="dropdown-item" href="{{env('APP_URL')}}articles/{{$article->manToken}}">View</a>
-                                <!-- <a class="dropdown-item" href="#">Something else here</a> -->
                                 <div class="dropdown-divider"></div>
-                                <!-- <a class="dropdown-item" href="#">Separated link</a> -->
                             </div>
                         </div>
 						<img src="{{$figureUrl}}" height="150px" width="99%">

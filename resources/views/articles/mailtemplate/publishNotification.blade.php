@@ -14,7 +14,7 @@
 		You can view or download your paper on the button below.
 		<br>
 		<div class="">
-			<a href="{{$article[0]->articleDetails[0]->j_url}}">
+			<a href="{{$article[0]->publishedDetails->j_url}}">
 			<button style="height: 40px; width: 120px; color:white; background-color:green; border:none; border-radius: 5px">
 					View paper
 				</button>

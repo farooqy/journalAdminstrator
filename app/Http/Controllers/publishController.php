@@ -11,7 +11,7 @@ use App\Models\manuscriptAuthorsModel;
 use App\Models\manuscriptModel;
 use App\Models\publishedArticlesModel;
 use App\Models\paperStatusTrackModel;
-use App\Mail\publishNotificationMail
+use App\Mail\publishNotificationMail;
 class publishController extends Controller
 {
     //
@@ -51,7 +51,7 @@ class publishController extends Controller
         else
         {
             $fextension = $approveForm->file('articleReasonFile')->getClientOriginalExtension();
-            $filename = time().'jtmb_scimazon.'.$fextension;
+            $filename = time().'_jtmb_scimazon.'.$fextension;
             $fileDirectory = env('APP_ROOT').'/uploads/publishes/'.hash('md5',$article[0]->submitter);
 
             if(file_exists($fileDirectory) === false)
@@ -76,7 +76,7 @@ class publishController extends Controller
                 publishedArticlesModel::create([
                     "j_id" => $article[0]->id,
                     "j_man_num" => $article[0]->man_num,
-                    "j_url" => env('APP_URL').'uploads/resends/'.hash('md5',$article[0]->submitter).'/'.$filename,
+                    "j_url" => env('APP_URL').'uploads/publishes/'.hash('md5',$article[0]->submitter).'/'.$filename,
                     "j_time" => time(),
                     "j_by" => Auth::user()->email
                 ]);

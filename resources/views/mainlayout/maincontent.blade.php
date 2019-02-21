@@ -13,7 +13,7 @@
                         ">Journal of Toxicology and Molecular Biology</h2>
                         
                         <div class="" style="padding-left: 50px">
-                            <p><a href="#">Visit site.</a></p>
+                            <p><a href="https://jtmb.scimazon.org" target="_blank">Visit site.</a></p>
                         </div>
                     </div>
                     <!-- <div class="d-flex w-500p">

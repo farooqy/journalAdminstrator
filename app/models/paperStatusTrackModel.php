@@ -8,6 +8,7 @@ class paperStatusTrackModel extends Model
 {
     //
     protected $table = "paper_status_track";
+    protected $fillable = ['j_id', 'whochanged_id', 'status'];
 
     public function papers()
     {

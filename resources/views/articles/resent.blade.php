@@ -37,6 +37,9 @@
 				</div>
 				<!-- {{$article->figures->count()}}<br> -->
 			@endforeach
+			@if($articles->count() <= 0)
+			There are no articles that have been resent
+			@endif
 			</div>
 		</div>
 			

@@ -22,8 +22,8 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="{{env('APP_URL')}}articles/publish/{{$article->manToken}}">Publish</a>
-                                <a class="dropdown-item" href="{{env('APP_URL')}}articles/reject{{$article->manToken}}">Reject</a>
-                                <a class="dropdown-item" href="{{env('APP_URL')}}articles/resend{{$article->manToken}}">Resend</a>
+                                <a class="dropdown-item" href="{{env('APP_URL')}}articles/reject/{{$article->manToken}}">Reject</a>
+                                <a class="dropdown-item" href="{{env('APP_URL')}}articles/resend/{{$article->manToken}}">Resend</a>
                                 <a class="dropdown-item" href="{{env('APP_URL')}}articles/{{$article->manToken}}">View</a>
                                 
                                 <div class="dropdown-divider"></div>
@@ -40,6 +40,9 @@
 				</div>
 				<!-- {{$article->figures->count()}}<br> -->
 			@endforeach
+			@if($articles->count() <= 0)
+			There are no available articles that are ready for publishing
+			@endif
 			</div>
 		</div>
 			

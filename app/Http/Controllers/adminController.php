@@ -29,4 +29,9 @@ class adminController extends Controller
     	]);
     	return $formRequest;
     }
+    public function maintenance()
+    {
+        return view("mainlayout.maintenance");
+    }
 }
+

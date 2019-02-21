@@ -11,6 +11,6 @@ class teamModel extends Model
 
     public function papersChanged()
     {
-    	return $this->hasMany('App\models\paperStatusTrackModel', 'whochanged_id')
+    	return $this->hasMany('App\models\paperStatusTrackModel', 'whochanged_id');
     }
 }

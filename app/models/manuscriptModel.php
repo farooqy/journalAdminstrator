@@ -8,6 +8,7 @@ class manuscriptModel extends Model
 {
     //
     protected $table = "journal_main";
+    public $timestamps = false;
     public function figures()
     {
     	return $this->hasMany('App\models\manuscritpFiguresModel', 'journal_id')->where('type', '=','figure');
@@ -23,5 +24,13 @@ class manuscriptModel extends Model
     public function paperStatuses()
     {
         return $this->hasMany('App\models\paperStatusTrackModel', 'j_id');
+    }
+    public function rejectedAritclesDetails()
+    {
+        return $this->hasMany('App\models\rejectedArticlesModel', 'j_id');
+    }
+    public function resentAritclesDetails()
+    {
+        return $this->hasMany('App\models\resentArticlesModel', 'j_id');
     }
 }

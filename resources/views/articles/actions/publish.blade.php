@@ -2,7 +2,7 @@
 @extends ("mainlayout.mainbody")
 
 @section ("pageTitle")
-	Approving Article
+	Publish Article
 @endsection
 @section ("maincontent")
 
@@ -12,12 +12,16 @@
 	<div class="container mt-xl-50 mt-sm-30 mt-15">
 		<div class="row">
 			<h1 style="font-size: 18; font-family: Times New Roman">
-				Please confirm the paper you are about to approve.
+				Please confirm the paper you are about to Publish.
 			</h1>
 		</div>
 		<div class="row" style="font-size: 15; font-family: Times New Roman; margin-top: 20px;">
 			<strong style="padding-right: 10px">Title: </strong> 
 			<span> {{ $article[0]->title }} </span>
+		</div>
+		<div class="row" style="font-size: 15; font-family: Times New Roman; margin-top: 20px;">
+			<strong style="padding-right: 10px">Current Status: </strong> 
+			<span> {{ $article[0]->status }} </span>
 		</div>
 		<div class="row" style="font-size: 15; font-family: Times New Roman; margin-top: 20px;">
 			<strong style="padding-right: 10px">Corresponding Author: </strong> 
@@ -36,12 +40,28 @@
 			
 		</div>
 		<div class="row " style="margin-top: 20px; border:thin solid gray; padding: 10px">
-			<form class="form col-md-6 col-lg-6" method="POST" action="">
+			<form class="form col-md-6 col-lg-6" method="POST" action="" enctype="multipart/form-data">
+				@csrf
 				<div class="row">
-					<label for="adminPassword">
+					@if(session()->has('articleError'))
+					<span><strong style="color:red">{{ session('articleError') }}</strong></span>
+					@endif
+					@php session()->forget('articleError') @endphp
+				</div>
+				<div class="row">
+					<input type="hidden" name="articleToken" style="border:thin solid gray; height: 30px; width: 100%"  value="{{ $article[0]->manToken }}">
+					@if($errors->has('articleToken'))
+					<span> <strong style="color: red"> {{ $errors->first('articleToken') }} </strong></span>
+					@endif()
+				</div>
+				<div class="row">
+					<label for="articleReasonFile">
 						Please upload the manuscript pdf
 					</label>
-					<input type="file" name="adminPassword" style="border:thin solid gray; height: 30px; width: 100%"  required="">
+					<input type="file" name="articleReasonFile" style="border:thin solid gray; height: 30px; width: 100%"  required="">
+					@if($errors->has('articleReasonFile'))
+					<span> <strong style="color: red"> {{ $errors->first('articleReasonFile') }} </strong></span>
+					@endif()
 				</div>
 				<div class="row">
 					<label for="adminPassword">

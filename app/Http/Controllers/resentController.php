@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 use Auth;
 use Hash;
 use Mail;
-use App\Models\manuscriptAuthorsModel;
-use App\Models\manuscriptModel;
-use App\Models\resentArticlesModel;
-use App\Models\paperStatusTrackModel;
+use App\models\manuscriptAuthorsModel;
+use App\models\manuscriptModel;
+use App\models\resentArticlesModel;
+use App\models\paperStatusTrackModel;
 use App\Mail\resentNotificationMail;
 
 class resentController extends Controller

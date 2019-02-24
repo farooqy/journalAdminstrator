@@ -8,10 +8,10 @@ use App\models\editorialModel;
 use App\models\teamModel;
 use App\models\newsModel;
 use App\models\feedbackModel;
-use App\Models\manuscriptFiguresModel;
-use App\Models\manuscriptAuthorsModel;
-use App\Models\registeredUsers;
-use App\Models\paperStatusTrackModel;
+use App\models\manuscriptFiguresModel;
+use App\models\manuscriptAuthorsModel;
+use App\models\registeredUsers;
+use App\models\paperStatusTrackModel;
 use App\Mail\approveNotificationMail;
 
 use Auth;

@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 use Auth;
 use Hash;
 use Mail;
-use App\Models\manuscriptAuthorsModel;
-use App\Models\manuscriptModel;
-use App\Models\publishedArticlesModel;
-use App\Models\paperStatusTrackModel;
+use App\models\manuscriptAuthorsModel;
+use App\models\manuscriptModel;
+use App\models\publishedArticlesModel;
+use App\models\paperStatusTrackModel;
 use App\Mail\publishNotificationMail;
 class publishController extends Controller
 {

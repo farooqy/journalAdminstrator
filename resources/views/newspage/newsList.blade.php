@@ -40,7 +40,6 @@
 								    Choose Action
 								  </button>
 								  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								    <a class="dropdown-item" href="/news/editnews/{{$news->update_id}}">Edit News</a>
 								    <a class="dropdown-item" href="/news/deletenew/{{$news->update_id}}">Mark Inactive</a>
 								  </div>
 								</div>

@@ -27,6 +27,7 @@ class newsController extends Controller
         $newsModel->update_status = 'active';
         $newsModel->update_time = time();
         $newsModel->update_token = hash('md5', time());
+        $newsModel->updated_user = Auth:user()->id;
         $newsModel->save();
 
         session()->flash('success', 'news Added');

@@ -52,9 +52,11 @@ Route::get('/team/new', 'adminController@maintenance');
 Route::get('/team/diactivated', 'adminController@maintenance');
 
 
-Route::get('/news', 'adminController@maintenance');
-Route::get('/news/new', 'adminController@maintenance');
-Route::get('/news/diactivated', 'adminController@maintenance');
+Route::get('/news', 'newsController@showNewsList');
+Route::get('/news/new', 'newsController@showEditor');
+Route::post('/news/new', 'newsController@saveNews');
+Route::get('/news/diactivate', 'newsController@showNewsList');
+Route::get('/news/deletenew/{newsId}', 'newsController@markNewsInactive');
 
 
 Route::get('/feedback', 'adminController@maintenance');

@@ -160,9 +160,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{env('APP_URL')}}news/diactivated" >
+                            <a class="nav-link" href="{{env('APP_URL')}}news/diactivate" >
                                 <span class="feather-icon"><i data-feather="anchor"></i></span>
-                                <span class="nav-link-text">Diactivated News </span>
+                                <span class="nav-link-text">Diactivate News </span>
                             </a>
                         </li>
                     </ul>

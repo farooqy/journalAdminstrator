@@ -9,12 +9,19 @@ class newsController extends Controller
 {
     //
 
+    public function isLoggedInCheck()
+    {
+        if(!$user  = \Auth::user())
+            return redirect("login")->send();
+    }
     public function showEditor()
     {
+        $this->isLoggedInCheck();
     	return view('newspage.editor');
     }
     public function saveNews(Request $newsForm)
     {
+        $this->isLoggedInCheck();
     	$newsForm->validate([
             'newsTitle' => 'required|string|min:20',
     		'newsEditor' => 'required|string|max:300|min:100'

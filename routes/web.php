@@ -38,12 +38,22 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/members', 'adminController@maintenance');
-Route::get('/members/active', 'adminController@maintenance');
-Route::get('/members/newmember', 'adminController@maintenance');
-Route::get('/members/diactivated', 'adminController@maintenance');
-Route::get('/members/roles/new', 'adminController@maintenance');
-Route::get('/members/roles', 'adminController@maintenance');
+Route::get('/members', 'membersController@activeMembers');
+Route::get('/members/active', 'membersController@activeMembers');
+Route::get('/members/newmember', 'membersController@addNewMember');
+Route::post('/members/newmember', 'membersController@saveNewMember');
+Route::get('/members/diactivated', 'membersController@showDeactivatedMembers');
+Route::get('/member/deactivate/{memberId}', 'membersController@deactivateMember');
+Route::get('/member/activate/{memberId}', 'membersController@activateMember');
+
+
+Route::get('/members/roles/new', 'membersController@addNewRole');
+Route::post('/members/roles/new', 'membersController@saveNewRole');
+Route::get('/members/roles', 'membersController@viewExistingRoles');
+Route::get('/members/roles/{roleId}', 'membersController@viewMembersInGivenRole');
+Route::get('/members/roles/deactivate/{roleId}', 'membersController@deactivateRole');
+Route::get('/members/roles/activate/{roleId}', 'membersController@activateRole');
+Route::post('/members/role/index', 'membersController@getRoleIndex');
 
 
 Route::get('/team', 'adminController@maintenance');

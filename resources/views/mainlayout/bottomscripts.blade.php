@@ -44,3 +44,4 @@
 
     <!-- Custom Javascripts -->
     <script src="{{env('APP_URL')}}js/custom.js"></script>
+    <script type="text/javascript" src="{{env('APP_URL')}}js/editorsJs.js"></script>

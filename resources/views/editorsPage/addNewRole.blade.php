@@ -38,8 +38,12 @@
 										    Choose Action
 										  </button>
 										  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-										    <a class="dropdown-item" href="/roles/members/{{$role->role_id}}">View Role Members</a>
-										    <a class="dropdown-item" href="/roles/deactivate/{{$role->role_id}}">Deactivate Role</a>
+										    <a class="dropdown-item" href="/members/roles/{{$role->role_id}}">View Role Members</a>
+										    @if($role->role_status === 'active')
+										    <a class="dropdown-item" href="/members/roles/deactivate/{{$role->role_id}}">Deactivate Role</a>
+										    @else
+										    <a class="dropdown-item" href="/members/roles/activate/{{$role->role_id}}">Activate Role</a>
+										    @endif
 										  </div>
 										</div>
 

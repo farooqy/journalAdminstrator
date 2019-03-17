@@ -30,7 +30,9 @@ class membersController extends Controller
     public function addNewRole()
     {
         $this->isLoggedInCheck();
-        $existingRoles = editorRolesModel::where('role_status', 'active')->get();
+        $existingRoles = editorRolesModel::with(['editorsInThisRole' => function($query){
+            $query->where('ed_status','active');
+        }])->get();
         return view('editorsPage.addNewRole', compact('existingRoles'));
     }
     public function viewExistingRoles()

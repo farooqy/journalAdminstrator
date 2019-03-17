@@ -30,7 +30,7 @@
 									<td></td>
 									<td>{{$role->role_name}}</td>
 									<td>{{$role->role_status}}</td>
-									<td>{{count($role->editorsInThisRole)}} member(s)</td>
+									<td>{{count($role->editorsInThisRole)}} active member(s)</td>
 									<td>
 
 										<div class="dropdown">

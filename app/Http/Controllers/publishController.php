@@ -52,7 +52,7 @@ class publishController extends Controller
         {
             $fextension = $approveForm->file('articleReasonFile')->getClientOriginalExtension();
             $filename = time().'_jtmb_scimazon.'.$fextension;
-            $fileDirectory = env('APP_ROOT').'/uploads/publishes/'.hash('md5',$article[0]->submitter);
+            $fileDirectory = env('APP_ROOT')."/uploads/publishes/".hash('md5',$article[0]->submitter);
 
             if(file_exists($fileDirectory) === false)
             {

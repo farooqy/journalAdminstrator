@@ -79,7 +79,7 @@ class resentController extends Controller
                 resentArticlesModel::create([
                     "j_id" => $article[0]->id,
                     "j_man_num" => $article[0]->man_num,
-                    "j_url" => env('APP_URL').'uploads/resends/'.hash('md5',$article[0]->submitter).'/'.$filename,
+                    "j_url" => env('APP_URL').$fileDirectory.'/'.$filename,
                     "j_time" => time(),
                     "j_by" => Auth::user()->email
                 ]);

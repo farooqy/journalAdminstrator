@@ -55,7 +55,7 @@ class resentController extends Controller
             
             $fextension = $approveForm->file('articleReasonFile')->getClientOriginalExtension();
             $filename = time().'resendReason.'.$fextension;
-            $fileDirectory = storage_path('app')."/uploads/resends/".hash('md5',$article[0]->submitter);
+            $fileDirectory = env('APP_ROOT')."/uploads/resends/".hash('md5',$article[0]->submitter);
 
             if(file_exists($fileDirectory) === false)
             {

@@ -55,7 +55,7 @@ class resentController extends Controller
             
             $fextension = $approveForm->file('articleReasonFile')->getClientOriginalExtension();
             $filename = time().'resendReason.'.$fextension;
-            $fileDirectory = env('APP_ROOT').'/uploads/resends/'.hash('md5',$article[0]->submitter);
+            $fileDirectory = env('APP_ROOT')."uploads/resends/".hash('md5',$article[0]->submitter);
 
             if(file_exists($fileDirectory) === false)
             {
@@ -66,8 +66,7 @@ class resentController extends Controller
                 }
             }
 
-            if(!$approveForm->file('articleReasonFile')->move(
-                base_path() . $fileDirectory.'/', $filename))
+            if(!$approveForm->file('articleReasonFile')->move($fileDirectory.'/', $filename))
             {
                 $approveForm->session()->put('articleError','Failed to upload reason file to the folder');
                 return view('articles.actions.resend', compact('article', 'manCAuthor'));
@@ -79,7 +78,7 @@ class resentController extends Controller
                 resentArticlesModel::create([
                     "j_id" => $article[0]->id,
                     "j_man_num" => $article[0]->man_num,
-                    "j_url" => env('APP_URL').'uploads/resends/'.hash('md5',$article[0]->submitter).'/'.$filename,
+                    "j_url" => env('APP_URL')."uploads/resends/".hash('md5',$article[0]->submitter).'/'.$filename,
                     "j_time" => time(),
                     "j_by" => Auth::user()->email
                 ]);

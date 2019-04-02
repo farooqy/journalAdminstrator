@@ -69,7 +69,7 @@ Route::get('/news/diactivate', 'newsController@showNewsList');
 Route::get('/news/deletenew/{newsId}', 'newsController@markNewsInactive');
 
 
-Route::get('/feedback', 'adminController@maintenance');
+Route::get('/feedback', 'feedbackController@viewAllFeeds');
 Route::get('/feedback/read', 'adminController@maintenance');
 Route::get('/feedback/unread', 'adminController@maintenance');
 

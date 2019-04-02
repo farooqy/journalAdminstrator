@@ -27,10 +27,10 @@ class manuscriptModel extends Model
     }
     public function rejectedAritclesDetails()
     {
-        return $this->hasMany('App\models\rejectedArticlesModel', 'j_id');
+        return $this->hasMany('App\models\rejectedArticlesModel', 'j_id')->orderBy('id', 'desc');
     }
     public function resentAritclesDetails()
     {
-        return $this->hasMany('App\models\resentArticlesModel', 'j_id');
+        return $this->hasMany('App\models\resentArticlesModel', 'j_id')->orderBy('id', 'desc');
     }
 }

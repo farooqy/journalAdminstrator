@@ -12,6 +12,6 @@ class resentArticlesModel extends Model
     public $timestamps = false;
     public function articleDetails()
     {
-    	return $this->belongsTo('App\models\manuscriptModel');
+    	return $this->belongsTo('App\models\manuscriptModel')->orderBy('id', 'desc');
     }
 }

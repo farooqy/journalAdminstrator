@@ -32,11 +32,11 @@
 						</p>
 						@elseif($article[0]->status === "resent")
 						<p class="glyphicon glyphicon-file" style="color:green;padding-right: 20px;">
-							<a href="{{$article[0]->resentAritclesDetails->j_url}}" target="_blank">View Reason File</a>
+							<a href="{{$article[0]->resentAritclesDetails[0]->j_url}}" target="_blank">View Reason File</a>
 						</p>
 						@elseif($article[0]->status === "rejected")
 						<p class="glyphicon glyphicon-file" style="color:green;padding-right: 20px;">
-							<a href="{{$article[0]->rejectedAritclesDetails->j_url}}" target="_blank">View Reason File</a>
+							<a href="{{$article[0]->rejectedAritclesDetails[0]->j_url}}" target="_blank">View Reason File</a>
 						</p>
 						@else
 						<p class="glyphicon glyphicon-file" style="color:green;padding-right: 20px;">

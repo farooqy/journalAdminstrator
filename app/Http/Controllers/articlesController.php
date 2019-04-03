@@ -52,6 +52,23 @@ class articlesController extends Controller
         ->orWhere('submitter', 'like', '%'.$searchForm->search_value.'%')->where('status','=', 'published')->get();
 
         return view('articles.published', compact('publishedArticles'));
+    }public function searchInactiveAritcle(Request $searchForm)
+    {
+        $this->isLoggedInCheck();
+        $searchForm->validate([
+            'search_value' => 'required|string|min:4'
+        ]);
+
+        $publishedArticles = manuscriptModel::where('status', 'inactive')->with(['authors'=>function($q) use ($searchForm){
+            // global $searchForm;
+            $q->where('a_email', 'like', '%'.$searchForm->search_value.'%')
+            ->orWhere('a_firstName', 'like', '%'.$searchForm->search_value.'%')
+            ->orWhere('a_secondName', 'like', '%'.$searchForm->search_value.'%');
+        }])->where([['title', 'like', '%'.$searchForm->search_value.'%'],['status','=', 'inactive']])
+        ->orWhere([['abstract', 'like', '%'.$searchForm->search_value.'%'],['status','=', 'inactive']])
+        ->orWhere('submitter', 'like', '%'.$searchForm->search_value.'%')->where('status','=', 'inactive')->get();
+
+        return view('articles.inactive', compact('publishedArticles'));
     }
     public function viewDeativatedArticles()
     {

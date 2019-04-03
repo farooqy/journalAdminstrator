@@ -6,7 +6,7 @@
 	<div class="hk-pg-wrapper">
 		<div class="container mt-xl-50 mt-sm-30 mt-15">
 			<div class="row">
-				<form class="form" action="{{route('searchPublishedArticles')}}" method="post">
+				<form class="form" action="{{route('searchInactiveArticles')}}" method="post">
 					@csrf
 					<input type="text" name="search_value" placeholder="Search Article by title/author">
 					<input type="submit" name="submit" value="Search" class=" btn-search">

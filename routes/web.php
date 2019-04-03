@@ -35,6 +35,7 @@ Route::post('/articles/publish/{token}', 'publishController@doPublishArticle');
 Route::post('/articles/reject/{token}', 'rejectController@doRejectArticle');
 Route::post('/articles/resend/{token}', 'resentController@doResendArticle');
 Route::post('/articles/published/search', 'articlesController@searchPublishedAritcle')->name('searchPublishedArticles');
+Route::post('/articles/inactive/search', 'articlesController@searchPublishedAritcle')->name('searchInactiveArticles');
 
 
 Route::get("/login", "adminController@loginPage");

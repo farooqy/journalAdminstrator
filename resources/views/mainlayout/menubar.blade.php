@@ -2,6 +2,11 @@
 	<ul class="row adminLeftBar">
 		Articles
 		<li>
+			<a href="{{env('APP_URL').'articles/published'}}">
+				Published Articles
+			</a>
+		</li>
+		<li>
 			<a href="{{env('APP_URL').'articles/topublish'}}">
 				Ready for Publication
 			</a>

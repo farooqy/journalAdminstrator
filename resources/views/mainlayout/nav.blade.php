@@ -55,6 +55,12 @@
                     </div>
                     <ul class="navbar-nav flex-column">
                         <li class="nav-item">
+                            <a class="nav-link" href="{{env('APP_URL')}}articles/published">
+                                <span class="feather-icon"><i data-feather="layout"></i></span>
+                                <span class="nav-link-text">Published Articles </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{env('APP_URL')}}articles/topublish">
                                 <span class="feather-icon"><i data-feather="layout"></i></span>
                                 <span class="nav-link-text">Ready for Publication </span>
@@ -76,6 +82,12 @@
                             <a class="nav-link" href="{{env('APP_URL')}}articles/rejected" >
                                 <span class="feather-icon"><i data-feather="server"></i></span>
                                 <span class="nav-link-text">Rejected articles </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{env('APP_URL')}}inactive/articles" >
+                                <span class="feather-icon"><i data-feather="server"></i></span>
+                                <span class="nav-link-text">Inactive articles </span>
                             </a>
                         </li>
                     </ul>

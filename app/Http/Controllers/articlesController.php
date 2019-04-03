@@ -25,6 +25,42 @@ class articlesController extends Controller
         if(!$user  = \Auth::user())
             return redirect("login")->send();
     }
+    public function viewPublishedArticles()
+    {
+        $this->isLoggedInCheck();
+        $publishedArticles = manuscriptModel::where('status', 'published')->get();
+        return view('articles.published', compact('publishedArticles'));
+    }
+    public function redirectToPublishedPage()
+    {
+        return redirect('articles/published')->send();
+    }
+    public function searchPublishedAritcle(Request $searchForm)
+    {
+        $this->isLoggedInCheck();
+        $searchForm->validate([
+            'search_value' => 'required|string|min:4'
+        ]);
+
+        $publishedArticles = manuscriptModel::where('status', 'published')->with(['authors'=>function($q) use ($searchForm){
+            // global $searchForm;
+            $q->where('a_email', 'like', '%'.$searchForm->search_value.'%')
+            ->orWhere('a_firstName', 'like', '%'.$searchForm->search_value.'%')
+            ->orWhere('a_secondName', 'like', '%'.$searchForm->search_value.'%');
+        }])->where([['title', 'like', '%'.$searchForm->search_value.'%'],['status','=', 'published']])
+        ->orWhere([['abstract', 'like', '%'.$searchForm->search_value.'%'],['status','=', 'published']])
+        ->orWhere('submitter', 'like', '%'.$searchForm->search_value.'%')->where('status','=', 'published')->get();
+
+        return view('articles.published', compact('publishedArticles'));
+    }
+    public function viewDeativatedArticles()
+    {
+        $this->isLoggedInCheck();
+
+        $articles = manuscriptModel::where('status', 'inactive')->get();
+
+        return view('articles.inactive', compact('articles'));
+    }
     public function topublish()
     {
     	//***********************************//

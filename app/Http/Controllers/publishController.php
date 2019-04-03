@@ -24,6 +24,34 @@ class publishController extends Controller
     {
         return manuscriptModel::where($key, $value)->get();
     }
+    public function deactivateArticle($manToken)
+    {
+        $article = manuscriptModel::where([['status', '=', 'published'], ['manToken', '=', $manToken]])->get();
+        if($article === null)
+        {
+            return view('articles.notfound');
+        }
+        else
+        {
+            manuscriptModel::where('manToken', $manToken)->update(['status' =>'inactive']);
+
+            return redirect('articles/published')->send();
+        }
+    }
+    public function activateArticle($manToken)
+    {
+        $article = manuscriptModel::where([['status', '=', 'published'], ['manToken', '=', $manToken]])->get();
+        if($article === null)
+        {
+            return view('articles.notfound');
+        }
+        else
+        {
+            manuscriptModel::where('manToken', $manToken)->update(['status' =>'published']);
+
+            return redirect('articles/published')->send();
+        }
+    }
     public function doPublishArticle(Request $approveForm)
     {
         $this->isLoggedInCheck();

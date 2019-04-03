@@ -15,6 +15,7 @@
 Route::get('/', 'articlesController@index');
 
 Route::get('/articles', 'articlesController@topublish');
+Route::get('/articles/published', 'articlesController@viewPublishedArticles')->name('publishedArticles');
 Route::get('/articles/topublish', 'articlesController@topublish');
 Route::get('/articles/toapprove', 'articlesController@toApprove');
 Route::get('/articles/resent', 'articlesController@resent');
@@ -24,11 +25,16 @@ Route::get('/articles/publish/{token}', 'articlesController@publishArticle');
 Route::get('/articles/approve/{token}', 'articlesController@approveArticle');
 Route::get('/articles/reject/{token}', 'articlesController@rejectArticle');
 Route::get('/articles/resend/{token}', 'articlesController@resendArticle');
+Route::get('/articles/published/deactivate/{token}', 'publishController@deactivateArticle');
+Route::get('/articles/published/activate/{token}', 'publishController@activateArticle');
+Route::get('/articles/published/search', 'articlesController@redirectToPublishedPage');
+Route::get('/inactive/articles', 'articlesController@viewDeativatedArticles');
 
 Route::post('/articles/approve/{token}', 'articlesController@doApproveArticle');
 Route::post('/articles/publish/{token}', 'publishController@doPublishArticle');
 Route::post('/articles/reject/{token}', 'rejectController@doRejectArticle');
 Route::post('/articles/resend/{token}', 'resentController@doResendArticle');
+Route::post('/articles/published/search', 'articlesController@searchPublishedAritcle')->name('searchPublishedArticles');
 
 
 Route::get("/login", "adminController@loginPage");

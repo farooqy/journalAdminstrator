@@ -33,4 +33,8 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\models\newsModel', 'id');
     }
+    public function replied_feedback()
+    {
+        return $this->hasMany('App\models\feedbackReplyModel', 'id');
+    }
 }

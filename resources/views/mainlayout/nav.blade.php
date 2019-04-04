@@ -185,19 +185,13 @@
                     </div>
                     <ul class="navbar-nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{env('APP_URL')}}feedback">
-                                <span class="feather-icon"><i data-feather="layout"></i></span>
-                                <span class="nav-link-text">Unread Messages  </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{env('APP_URL')}}feedback/unread" >
+                            <a class="nav-link" href="{{env('APP_URL')}}feedback" >
                                 <span class="feather-icon"><i data-feather="type"></i></span>
                                 <span class="nav-link-text">Non-replied Messages  </span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{env('APP_URL')}}feedback/read" >
+                            <a class="nav-link" href="{{env('APP_URL')}}feedback/readfeedback" >
                                 <span class="feather-icon"><i data-feather="anchor"></i></span>
                                 <span class="nav-link-text">Replied Messages </span>
                             </a>

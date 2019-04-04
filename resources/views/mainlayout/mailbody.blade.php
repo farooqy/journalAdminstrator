@@ -4,6 +4,9 @@
 	<title>@yield('mailTitle')</title>
 </head>
 <body>
+	<div class="" style="margin-bottom: 40px">
+		<img src="{{env('APP_URL')}}uploads/static/1xLogosmall.png" >
+	</div>
 	@yield("mailContent")
 
 	<div class="">

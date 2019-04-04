@@ -77,8 +77,10 @@ Route::get('/news/deletenew/{newsId}', 'newsController@markNewsInactive');
 
 
 Route::get('/feedback', 'feedbackController@viewAllFeeds');
-Route::get('/feedback/read', 'adminController@maintenance');
-Route::get('/feedback/unread', 'adminController@maintenance');
+Route::post('reply/feedback', 'feedbackController@replyToFeedBack')->name('feedbackReply');
+Route::get('/feedback/readfeedback', 'feedbackController@feedbackReadView');
+Route::get('/feedback/replies/{feedbackId}', 'feedbackController@viewReplies');
+Route::get('/feedback/{feedbackId}', 'feedbackController@viewFeedback');
 
 Route::get('/harvest', 'adminController@maintenance');
 Route::get('/analytics', 'adminController@maintenance');

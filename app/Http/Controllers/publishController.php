@@ -91,8 +91,7 @@ class publishController extends Controller
                 }
             }
 
-            if(!$approveForm->file('articleReasonFile')->move(
-                base_path() . $fileDirectory.'/', $filename))
+            if(!$approveForm->file('articleReasonFile')->move($fileDirectory.'/', $filename))
             {
                 $approveForm->session()->put('articleError','Failed to upload reason file to the folder');
                 return view('articles.actions.publish', compact('article', 'manCAuthor'));

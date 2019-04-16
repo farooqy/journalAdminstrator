@@ -53,5 +53,9 @@ License: You must have a valid license purchased only from themeforest to legall
     @include ("mainlayout.bottomscripts")
 
 </body>
-
+<style type="text/css">
+    .container {
+        margin-bottom: 50px;
+    }
+</style>
 </html>

@@ -13,13 +13,11 @@
 		<br>
 		For More information, contact:
 		<br>
-		Email: <a href="mailto:support@jtmb.scimazon.org">support@jtmb.scimazon.org</a>
-		<br>
-		Phone: <a href="telephone:+919903050456">+91 99030 50456</a>
+		Email: <a href="mailto:support@scimazon.org">support@jtmb.scimazon.org</a>
 		<br><br>
 		Regards,<br>
 		Journal of Toxicology and Molecular Biology,
-		Scimazon.
+		Scimazon
 	</div>
 </body>
 </html>

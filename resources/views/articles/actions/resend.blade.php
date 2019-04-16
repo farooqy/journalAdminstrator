@@ -39,7 +39,7 @@
 			@endforeach
 			
 		</div>
-		<div class="row " style="margin-top: 20px; border:thin solid gray; padding: 10px">
+		<div class="row " style="margin-top: 20px; border:thin solid gray; padding: 10px;  padding-bottom: 50px;">
 			<form class="form col-md-6 col-lg-6" method="POST" action="" enctype="multipart/form-data">
 				@csrf
 				<div class="row">

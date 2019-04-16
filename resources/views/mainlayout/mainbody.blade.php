@@ -55,7 +55,7 @@ License: You must have a valid license purchased only from themeforest to legall
 </body>
 <style type="text/css">
     .container {
-        margin-bottom: 50px;
+        padding-bottom: 50px;
     }
 </style>
 </html>
